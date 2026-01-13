@@ -1,0 +1,50 @@
+{
+    "name": "transcendence",
+    "type": "module",
+    "dependencies": {
+        "@fastify/cookie": "^11.0.2",
+        "@fastify/cors": "^11.0.1",
+        "@fastify/jwt": "^9.1.0",
+        "@fastify/multipart": "^9.0.3",
+        "@fastify/oauth2": "^8.1.2",
+        "@fastify/static": "^8.2.0",
+        "@fastify/websocket": "^11.1.0",
+        "axios": "^1.10.0",
+        "bcrypt": "^6.0.0",
+        "dotenv": "^17.2.1",
+        "fastify": "^5.4.0",
+        "jwt-decode": "^4.0.0",
+        "nodemailer": "^7.0.3",
+        "pm2": "^6.0.6",
+        "python": "^0.0.4",
+        "sqlite3": "^5.1.7",
+        "vite": "^6.3.5"
+    },
+    "devDependencies": {
+        "@tailwindcss/cli": "^4.1.8",
+        "@tsconfig/node22": "^22.0.2",
+        "@types/bcrypt": "^5.0.2",
+        "@types/node": "^22.16.5",
+        "@types/nodemailer": "^6.4.17",
+        "@types/ws": "^8.18.1",
+        "tailwindcss": "^4.1.10",
+        "tsx": "^4.0.0",
+        "typescript": "^5.8.3",
+        "vite": "^6.3.5"
+    },
+    "scripts": {
+        "alias": "echo \"alias\trun='npm run --silent'\" >> ~/.zshrc && . ~/.zshrc",
+        "dev": "./setup.sh && docker compose up dev",
+        "vite:dev": "vite --host 0.0.0.0",
+        "redev": "./setup.sh && docker compose up --build dev",
+        "prod": "./setup.sh && docker compose up prod",
+        "reprod": "./setup.sh && docker compose up --build prod",
+        "dls": "docker compose ls -a",
+        "nuke": "rm -rf ~/.cache node_modules .env certs && docker system prune -af --volumes",
+        "main": "git checkout main && git pull",
+        "keepup": "git checkout $USER && git fetch origin && git merge --no-edit main && git push",
+        "me": "git checkout $USER && git pull",
+        "merge": "npm run me && npm run main && git merge --no-edit $USER && git push && npm run me",
+        "cli": "NODE_TLS_REJECT_UNAUTHORIZED=0 node src/frontend/cliPong.js"
+    }
+}
